@@ -25,16 +25,17 @@
 
 <script>
 $(function() {
-    // Send POST request to job server w/ k value selected
+    // Send POST request to job server with k value selected
     $.ajax({
       // method: "POST",
       // data: { command: "curl -d 'input = %" + kValueOption + "%' 'localhost:8090/jobs?appName=%" + context + "%&classPath=%com.test." + context + "%&context=%" + context + "%&sync=true'" },
-      url: "https://s3.amazonaws.com/d3presentation/data.json",
+      url: "https://s3.amazonaws.com/d3presentation/data.json", // change this URL to point to your Spark Job Server
       dataType: "json",
       success: function (json) {
       	// initialize empty array
       	var cluster = [];
 
+      	// push values to array
       	for (var i = 0; i < json.length; i++) {
       		cluster.push({
             	cluster: json[i].cluster,
@@ -44,6 +45,7 @@ $(function() {
           	});
       	}
 
+      	// generate new pie chart
         var pie = new d3pie("pieChart", {
           "header": {
             "title": {
