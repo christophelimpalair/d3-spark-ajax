@@ -27,9 +27,7 @@
 $(function() {
     // Send POST request to job server with k value selected
     $.ajax({
-      // method: "POST",
-      // data: { command: "curl -d 'input = %" + kValueOption + "%' 'localhost:8090/jobs?appName=%" + context + "%&classPath=%com.test." + context + "%&context=%" + context + "%&sync=true'" },
-      url: "https://s3.amazonaws.com/d3presentation/data.json", // change this URL to point to your Spark Job Server
+      url: "", // change this URL to point to your Spark Job Server
       dataType: "json",
       success: function (json) {
       	// initialize empty array
